@@ -1,24 +1,28 @@
 <script lang="ts">
     // handling the rendering of each github portfolio
+    
+    export let name: string;
+    
     </script>
     
-    // parent div
+    
     <div>
         <h1>template for porfolio</h1>
-        
-        //section ONE
+           
+     <!-- //section ONE -->
         <div>
-            //pfp, name, bio, go to github button
+            <!-- pfp, name, go to github button -->
+            <p>my github username is {name}</p>
         </div>
     
-        //section TWO
+        <!-- //section TWO -->
         <div>
-            // average contributions etc
+            <!-- // average contributions etc -->
         </div>
     
-        //section THREE
+        <!-- //section THREE -->
         <div>
-            // guthib calendar
+            <!-- // github calendar -->
         </div>
         
     </div>

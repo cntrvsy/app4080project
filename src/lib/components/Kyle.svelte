@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { Avatar } from "@skeletonlabs/skeleton";
+  import { Avatar } from "@skeletonlabs/skeleton";
+	import { Dices, ScrollText, Hourglass, Contact } from "lucide-svelte";
 	
 let pfp:string = "https://avatars.githubusercontent.com/u/85725132?u=3684d798309c29d4f339936ce3f547cf5db94125&v=4"
 </script>
@@ -36,5 +37,70 @@ let pfp:string = "https://avatars.githubusercontent.com/u/85725132?u=3684d798309
           </div>
         </div>
       </div>
+      
+      <!-- skills, education, work experience, contact information -->
+      <div class="container px-5 py-24 mx-auto flex flex-wrap">
+        <div class="flex flex-wrap -m-4">
+          <!-- skills -->
+          <div class="p-4 lg:w-1/2 md:w-full">
+            <div class="flex border-2 rounded-lg border-gray-400 p-8 sm:flex-row flex-col">
+              <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full flex-shrink-0">
+                <Dices strokeWidth={2} size={48}/>
+              </div>
+              <div class="flex-grow">
+                <h2 class=" text-lg title-font font-medium mb-3">Skills</h2>
+                <p class="leading-relaxed text-base">
+                  problem-solving abilities, and a strong understanding of software development principles and practices. 
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- education -->
+          <div class="p-4 lg:w-1/2 md:w-full">
+            <div class="flex border-2 rounded-lg border-gray-400 p-8 sm:flex-row flex-col">
+              <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full flex-shrink-0">
+                <ScrollText strokeWidth={2} size={48}/>
+              </div>
+              <div class="flex-grow">
+                <h2 class=" text-lg title-font font-medium mb-3">Education</h2>
+                <p class="leading-relaxed text-base">
+                  Bachelor of Science in Applied Computer Technology, concentration Software Engineering. 
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- work experience -->
+          <div class="p-4 lg:w-1/2 md:w-full">
+            <div class="flex border-2 rounded-lg border-gray-400 p-8 sm:flex-row flex-col">
+              <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full flex-shrink-0">
+                <Hourglass strokeWidth={2} size={48} />
+              </div>
+              <div class="flex-grow">
+                <h2 class=" text-lg title-font font-medium mb-3">Work Experience</h2>
+                <p class="leading-relaxed text-base">
+                  Interned at a start up software development company name JaokO Software Solutions  for 6 months. 
+                </p>
+              </div>
+            </div>
+          </div>
+           <!-- contact information -->
+           <div class="p-4 lg:w-1/2 md:w-full">
+            <div class="flex border-2 rounded-lg border-gray-400 p-8 sm:flex-row flex-col">
+              <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full flex-shrink-0">
+                <Contact strokeWidth={2} size={48}/>
+              </div>
+              <div class="flex-grow">
+                <h2 class=" text-lg title-font font-medium mb-3">Work Experience</h2>
+                <p class="leading-relaxed text-base">
+                  you can reach on phone (0712123453) or on email (kyle-304@github.com) between the hour of 8am till 5pm. 
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+
     </div>
   </section>   

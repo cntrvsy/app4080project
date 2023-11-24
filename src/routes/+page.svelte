@@ -1,20 +1,41 @@
 <script lang="ts">
 // first page sveltekit renders ('/')
-	import { signIn, signOut } from '@auth/sveltekit/client';
-	import { Avatar } from '@skeletonlabs/skeleton';
 	import { page } from "$app/stores"
 	
 	//custom imports
 	import GithubPortfolio from '$lib/components/GithubPortfolio.svelte';
 	import Kyle from '$lib/components/Kyle.svelte';
+	import { onMount } from "svelte";
 	
 	export let data;
 	$: console.log(data);
 
- // arranging the data.
-	let queryone_name = data.data.query_One.data.user.login
-	let queryone_pfp = data.data.query_One.data.user.avatarUrl
-	console.log(queryone_name)
+//arranging the data.
+	//query one.
+	let query_one_name: string;
+	let query_one_totalContributions: string;
+	let query_one_totalCommitContributions: string;
+	let query_one_totalIssueContributions: string;
+  	let query_one_totalPullRequestContributions: string;
+	let query_one_totalPullRequestReviewContributions: string;
+	let query_one_totalRepositoryContributions: string;
+
+	onMount(() => {
+		query_one_name = data.data.query_One.data.user.login
+		query_one_totalContributions = data.data?.query_One?.data?.user?.contributionsCollection?.contributionCalendar.totalContributions || 0;
+		query_one_totalCommitContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalCommitContributions || 0;
+    	query_one_totalIssueContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalIssueContributions || 0;
+		query_one_totalPullRequestContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalPullRequestContributions || 0;
+		query_one_totalPullRequestReviewContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalPullRequestReviewContributions || 0;
+		query_one_totalRepositoryContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalRepositoryContributions || 0;
+		
+		console.log(query_one_name, query_one_totalContributions, query_one_totalCommitContributions, query_one_totalIssueContributions, query_one_totalPullRequestContributions, query_one_totalPullRequestReviewContributions, query_one_totalRepositoryContributions)
+	
+	})
+	
+	
+
+	
 	
   </script>
 
@@ -25,18 +46,26 @@
 		  <!-- main page you see -->
 		<div class="py-4">	
 			<Kyle/>
-			<GithubPortfolio name= {queryone_name}/>
+			<GithubPortfolio
+			 name = {query_one_name}
+			 totalContributions = {query_one_totalContributions} 
+			 totalCommitContributions = {query_one_totalCommitContributions}
+			 totalIssueContributions = {query_one_totalIssueContributions}
+			 totalPullRequestContributions = {query_one_totalPullRequestContributions}
+			 totalPullRequestReviewContributions = {query_one_totalPullRequestReviewContributions}
+			 totalRepositoryContributions = {query_one_totalRepositoryContributions}
+			/>
 		</div>
 
 		<hr>
 
 		<div>
-			<GithubPortfolio name={queryone_name}/>
+			<!-- <GithubPortfolio name={query_one_name}/> -->
 		</div>
 		
 		<hr>
 		<div>
-			<GithubPortfolio name={queryone_name}/>
+			<!-- <GithubPortfolio name={queryone_name}/> -->
 		</div>
   		
 	</div>

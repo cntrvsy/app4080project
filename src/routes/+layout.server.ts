@@ -1,8 +1,8 @@
 // ensures all pages have access to the session token 
-import type { LayoutServerLoad } from "./$types"
+import type { LayoutServerLoad } from './$types'
 
-export const load: LayoutServerLoad = async (event) => {
+export const load: LayoutServerLoad = async ({ locals: { getSession } }) => {
   return {
-    session: await event.locals.getSession(),
+    session: await getSession(),
   }
 }

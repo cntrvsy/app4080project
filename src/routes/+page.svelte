@@ -1,79 +1,26 @@
 <script lang="ts">
 // first page sveltekit renders ('/')
-	
-	//custom imports
-	import GithubPortfolio from '$lib/components/GithubPortfolio.svelte';
-	import Kyle from '$lib/components/Kyle.svelte';
-	import { onMount } from "svelte";
-	
-	export let data;
-	$: console.log(data);
 
-//arranging the data.
-	//query one.
-	let query_one_name: string;
-	let query_one_totalContributions: string;
-	let query_one_totalCommitContributions: string;
-	let query_one_totalIssueContributions: string;
-  	let query_one_totalPullRequestContributions: string;
-	let query_one_totalPullRequestReviewContributions: string;
-	let query_one_totalRepositoryContributions: string;
-
-	let query_one_RepositoryName: string;
-	let query_one_commitMessage: string;
-
-	onMount(() => {
-		query_one_name = data.data.query_One.data.user.login
-		query_one_totalContributions = data.data?.query_One?.data?.user?.contributionsCollection?.contributionCalendar.totalContributions || 0;
-		query_one_totalCommitContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalCommitContributions || 0;
-    	query_one_totalIssueContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalIssueContributions || 0;
-		query_one_totalPullRequestContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalPullRequestContributions || 0;
-		query_one_totalPullRequestReviewContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalPullRequestReviewContributions || 0;
-		query_one_totalRepositoryContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalRepositoryContributions || 0;
-		
-		query_one_RepositoryName = data.data?.query_One?.data?.user?.repository?.name 
-		query_one_commitMessage = data.data?.query_One?.data?.user?.repository?.defaultBranchRef?.target?.history?.edges[0].node?.message
-		console.log(query_one_name, query_one_totalContributions, query_one_totalCommitContributions, query_one_totalIssueContributions, query_one_totalPullRequestContributions, query_one_totalPullRequestReviewContributions, query_one_totalRepositoryContributions, query_one_RepositoryName, query_one_commitMessage)
-	
-	})
-	
-	
-
-	
-	
-  </script>
+import hero_main from '$lib/assets/hero_main.svg'
+import { goto } from '$app/navigation';
+</script>
 
 
 
   <main>
-	<div class="container px-5 py-8 mx-auto flex flex-col">		
-		  <!-- main page you see -->
-		<div class="py-4">	
-			<Kyle/>
-			<GithubPortfolio
-			 name = {query_one_name}
-			 totalContributions = {query_one_totalContributions} 
-			 totalCommitContributions = {query_one_totalCommitContributions}
-			 totalIssueContributions = {query_one_totalIssueContributions}
-			 totalPullRequestContributions = {query_one_totalPullRequestContributions}
-			 totalPullRequestReviewContributions = {query_one_totalPullRequestReviewContributions}
-			 totalRepositoryContributions = {query_one_totalRepositoryContributions}
-			 RepositoryName = {query_one_RepositoryName}
-			 commitMessage = {query_one_commitMessage}
-			/>
+	<section>
+		<div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+			<img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="{hero_main}">
+			<div class="text-center lg:w-2/3 w-full">
+				<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium">
+					GITHUB PORTFOLIO
+				</h1>
+				<p class="leading-relaxed mb-8">
+					Welcome to our Github Portfolio application showing our groups work
+				</p>
+				<button class="btn variant-filled-primary" on:click={()=> goto('/home')}> Get Started</button>
+			</div>
 		</div>
-
-		<hr>
-
-		<div>
-			<!-- <GithubPortfolio name={query_one_name}/> -->
-		</div>
-		
-		<hr>
-		<div>
-			<!-- <GithubPortfolio name={queryone_name}/> -->
-		</div>
-  		
-	</div>
+	</section>	
   </main>
 	

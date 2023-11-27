@@ -16,6 +16,7 @@
 
 	//custom imports
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import '@fontsource-variable/montserrat'
 	import CustomSignOut from '$lib/components/CustomSignOut.svelte';
 	import { navigating } from '$app/stores';
 	import { loading } from '$lib/stores/loading';
@@ -60,8 +61,8 @@
 					<p class="px-4">{session?.user.email}</p>
 					<CustomSignOut {supabase}/>
 			  {:else}
-				<!-- if the user hasnt signed in -->
-				Heyyy You
+				<!-- if the user hasn't signed in -->
+				<p class="Quicksand">Hey, you </p>
 			  {/if}
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
@@ -77,3 +78,9 @@
 	</CustomPageTransition>
 
 </AppShell>
+
+<style>
+	:global(body){
+		font-family: 'Montserrat Variable', sans-serif;
+	}
+</style>

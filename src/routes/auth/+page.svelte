@@ -53,7 +53,7 @@ export const showToast = (message:string) => {
     SignIn: 'SignIn',
   }
   // handles the switching between the two forms 
-  function toggleSign_State(state) {
+  function toggleSign_State(state:string) {
     componentState = state;
     console.log("changed to")
     console.log(componentState)
@@ -73,15 +73,15 @@ export const showToast = (message:string) => {
 
   </script>
   
-  <form on:submit="{handleSignUp}">
+  <!-- <form on:submit="{handleSignUp}">
     <input name="email" bind:value="{email}" />
     <input type="password" name="password" bind:value="{password}" />
     <button>Sign up</button>
-  </form>
+  </form> -->
   
-  <button on:click="{handleSignIn}" >Sign in</button>
+  <!-- <button on:click="{handleSignIn}" >Sign in</button>
   <button on:click="{handleSignOut}">Sign out</button>
-  <br> 
+  <br>  -->
   <!-- <button class="btn variant-filled-secondary" on:click={toggleSign_State('SignIn')}>toggle</button> -->
 
   <br>

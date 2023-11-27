@@ -15,4 +15,4 @@ import { goto } from '$app/navigation';
   }
 </script>
 
-<button on:click={handleSignOut} class="variant-outline-primary">Sign Out</button>
+<button on:click={handleSignOut} class=" btn variant-filled-primary">Sign Out</button>

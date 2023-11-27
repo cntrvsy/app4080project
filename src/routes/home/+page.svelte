@@ -7,7 +7,6 @@
         import { onMount } from "svelte";
         
         export let data;
-        $: console.log(data);
     
     //arranging the data.
         //query one.
@@ -20,7 +19,8 @@
         let query_one_totalRepositoryContributions: string;
     
         let query_one_RepositoryName: string;
-        let query_one_commitMessage: string;
+        let query_one_commitMessage_one: string;
+        let query_one_commitMessage_two: string;
     
         onMount(() => {
             query_one_name = data.data.query_One.data.user.login
@@ -32,14 +32,13 @@
             query_one_totalRepositoryContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalRepositoryContributions || 0;
             
             query_one_RepositoryName = data.data?.query_One?.data?.user?.repository?.name 
-            query_one_commitMessage = data.data?.query_One?.data?.user?.repository?.defaultBranchRef?.target?.history?.edges[0].node?.message
-            console.log(query_one_name, query_one_totalContributions, query_one_totalCommitContributions, query_one_totalIssueContributions, query_one_totalPullRequestContributions, query_one_totalPullRequestReviewContributions, query_one_totalRepositoryContributions, query_one_RepositoryName, query_one_commitMessage)
+            query_one_commitMessage_one = data.data?.query_One?.data?.user?.repository?.defaultBranchRef?.target?.history?.edges[0].node?.message
+            query_one_commitMessage_two = data.data?.query_One?.data?.user?.repository?.defaultBranchRef?.target?.history?.edges[1].node?.message
+
+            console.log(query_one_name, query_one_totalContributions, query_one_totalCommitContributions, query_one_totalIssueContributions, query_one_totalPullRequestContributions, query_one_totalPullRequestReviewContributions, query_one_totalRepositoryContributions, query_one_RepositoryName, query_one_commitMessage_one)
+
         
         })
-        
-        
-    
-        
         
       </script>
     
@@ -59,7 +58,8 @@
                  totalPullRequestReviewContributions = {query_one_totalPullRequestReviewContributions}
                  totalRepositoryContributions = {query_one_totalRepositoryContributions}
                  RepositoryName = {query_one_RepositoryName}
-                 commitMessage = {query_one_commitMessage}
+                 commitMessage_one = {query_one_commitMessage_one}
+                 commitMessage_two = {query_one_commitMessage_two}
                 />
             </div>
     

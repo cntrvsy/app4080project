@@ -11,7 +11,8 @@
     export let totalPullRequestReviewContributions: string = "0"
     export let totalRepositoryContributions: string = "0"
     export let RepositoryName:string;
-    export let commitMessage:string;
+    export let commitMessage_one:string;
+    export let commitMessage_two:string;
 
     </script>
     
@@ -30,7 +31,7 @@
           <!-- stats section -->
           <div class="flex flex-wrap -m-4">
             <!-- tag one -->
-            <div class="p-4 md:w-1/3">
+            <div class="p-4 md:w-1/3 ">
               <div class="flex rounded-lg h-full bg-gray-800 bg-opacity-80 p-8 flex-col">
                 <div class="flex items-center mb-3">
                   <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full flex-shrink-0">
@@ -131,16 +132,36 @@
             <hr class="!border-t-2 !border-double">
             <div class="grid place-items-center py-4">
               <!-- update -->
-          <div class="p-4 lg:w-1/2 md:w-full">
-            <div class="flex border-2 rounded-lg border-gray-400 p-8 sm:flex-row flex-col">
-              <div class="flex-grow">
-                <h2 class=" text-lg title-font font-medium mb-3">Latest github update: {RepositoryName}</h2>
-                <p class="leading-relaxed text-base">
-                  {commitMessage}. 
-                </p>
+              <div class="container px-5 py-8 mx-auto">
+                <div class="flex flex-col text-center w-full mb-12">
+                  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 ">
+                    Latest github Feed
+                  </h1>
+                  <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+                    {RepositoryName}
+                  </p>
+                  <!-- border -->
+                  <div class="p-4 md:w-full">
+                    <div class="flex border-2 rounded-lg border-gray-400 p-8 sm:flex-row flex-col">
+                      <div class="flex-grow">
+                        <p class="leading-relaxed text-base">
+                          {commitMessage_one}. 
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- border -->
+                  <div class="p-4 md:w-full">
+                    <div class="flex border-2 rounded-lg border-gray-400 p-8 sm:flex-row flex-col">
+                      <div class="flex-grow">
+                        <p class="leading-relaxed text-base">
+                          {commitMessage_two}. 
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
             </div>
           </div>
         </div>

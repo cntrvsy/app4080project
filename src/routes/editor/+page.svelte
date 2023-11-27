@@ -1,21 +1,23 @@
 <script lang="ts">
     import { page } from "$app/stores"
-    let ourdata = $page.data.session; 
-    console.log("editor page")
-    console.log(ourdata)
+    export let data
+
+	let { supabase, session } = data
+
   </script>
   
-  {#if $page.data.session}
-  <h1>Protected page</h1>
+  {#if session?.user}
+  <h1>Protected page(Editing )</h1>
+
   <p>
-    This is a protected content. You can access this content because you are
+    This is a protected content. You should be able to add,delete or modify a project details
     signed in.
   </p>
-  <p>Session expiry: {$page.data.session?.expires}</p>
+
   {:else}
   <h1>Access Denied</h1>
   <p>
-    <a href="/auth/signin">
+    <a href="/auth">
       You must be signed in to view this page
     </a>
   </p>

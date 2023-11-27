@@ -11,7 +11,7 @@
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-	import { invalidate} from '$app/navigation';
+	import { goto, invalidate} from '$app/navigation';
 	import { onMount } from 'svelte';
 
 	//custom imports
@@ -54,39 +54,19 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<!-- checks if user exists in the session and renders accordingly -->
+				<!-- checks if user(from session) exists in the session and renders accordingly -->
 				{#if $page.data.session?.user}
 					<!-- checks if session has the profile image of the user -->
-						{#if $page.data.session.user?.image}
-							<Avatar src={$page.data.session.user.image}
-							 width="w-16"
-							  rounded="rounded-3xl" />			  
-					  {/if}
-					  <p class="px-2">{$page.data.session.user.email}</p>
-				<button class="px-2 btn variant-ghost-primary">Sign out</button>
-				
+					<p class="px-4">{session?.user.email}</p>
+					<CustomSignOut {supabase}/>
 			  {:else}
 				<!-- if the user hasnt signed in -->
-				<button class="btn variant-outline-primary ">Sign in</button>
+				Heyyy You
 			  {/if}
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="/"
-					target="_blank"
-					rel="noreferrer"
-				>
-					Home
-				</a>
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="/editor"
-					target="_blank"
-					rel="noreferrer"
-				>
-					Editor
-				</a>
+				<button on:click={()=>{goto("/home")}} class="btn variant-filled-secondary"> Portfolios</button>
+				<button on:click={()=>{goto("/editor")}} class="btn variant-filled-secondary"> Editor</button>
 				<LightSwitch/>
 			</svelte:fragment>
 		</AppBar>

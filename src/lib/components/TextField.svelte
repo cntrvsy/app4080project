@@ -1,4 +1,6 @@
 <script> 
+//svelte super forms implementation for modular text field component
+
 //@ts-nocheck
     import { formFieldProxy } from 'sveltekit-superforms/client';
     
@@ -18,7 +20,7 @@
 {/if}
 <div class="control space-y-4">
     <input 
-    class={"input pl-2 box-content h-8 w-80"+ _class} 
+    class={"input pl-4"+ _class} 
         name={field} 
         aria-invalid={$errors ? 'true' : undefined}  
         placeholder={custom_placeholder}

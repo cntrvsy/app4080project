@@ -1,5 +1,6 @@
 <script lang="ts">
     // first page sveltekit renders ('/')
+    //@ts-nocheck
     import { fly,fade } from 'svelte/transition';
 
         //custom imports
@@ -7,8 +8,18 @@
         import Kyle from '$lib/components/Kyle.svelte';
         import { onMount } from "svelte";
         
-        export let data;
+        export let data; // unique to sveltekit
+        let { supabase } = data
         
+        // initializing at the top to prevent issues
+        
+        let kyle_UUID:string;
+        let db_projects_kyle = [];
+        let cntrvsy_UUID:string = "bdd59a73-3afc-41e9-a033-14976970ba52";
+        let db_projects_cntrvsy = [];
+        let thy_UUID:string;
+        let db_projects_thy = [];
+
         // state
     let componentState = 'Projects';
     const componentStates = {
@@ -23,6 +34,14 @@
   }
 
     //arranging the data.
+        //getting the projects data
+        let user_id = cntrvsy_UUID;
+        let id;
+        let name:string;
+        let description:string;
+        let technology:string;
+        let link:string;
+
         //query one.
         let query_one_name: string;
         let query_one_totalContributions: string;
@@ -36,7 +55,8 @@
         let query_one_commitMessage_one: string;
         let query_one_commitMessage_two: string;
     
-        onMount(() => {
+        onMount(async () => {
+            //kyle github data retrieval(graphQL)
             query_one_name = data.data.query_One.data.user.login
             query_one_totalContributions = data.data?.query_One?.data?.user?.contributionsCollection?.contributionCalendar.totalContributions || 0;
             query_one_totalCommitContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalCommitContributions || 0;
@@ -50,8 +70,23 @@
             query_one_commitMessage_two = data.data?.query_One?.data?.user?.repository?.defaultBranchRef?.target?.history?.edges[1].node?.message
 
             console.log(query_one_name, query_one_totalContributions, query_one_totalCommitContributions, query_one_totalIssueContributions, query_one_totalPullRequestContributions, query_one_totalPullRequestReviewContributions, query_one_totalRepositoryContributions, query_one_RepositoryName, query_one_commitMessage_one)
-
+            
+            //kyle project data
+            try {
+            // gets all the projects tied to the session.user id
+                let db = await supabase.from('projectsGithub').select('*').eq('user_id', cntrvsy_UUID)
         
+            // removes the indexes from data
+                db_projects_kyle = db.data;
+
+                console.log("db_projects kyle")    
+                console.log(db_projects_kyle)
+    
+            } catch (error) {
+                console.log(error)
+       
+            }
+
         })
         
       </script>
@@ -61,7 +96,7 @@
       <main>
         <div class="container px-5 py-8 mx-auto flex flex-col">		
               <!-- main page you see -->
-            <div>	
+            <section>	
                 <div class="py-4">
                     <Kyle/>
                 </div>
@@ -103,12 +138,34 @@
                     <div
                     in:fly={{ x: 250, duration: 700, delay:500 }}
                     out:fade={{duration:400}}>
-                       
-                            
+                        <div class="container px-5 py-8 mx-auto">
+                            {#if db_projects_kyle.length > 0}
+                            {#each db_projects_kyle as {id, ...item}}
+                                <div class="py-8 flex flex-wrap md:flex-nowrap">
+                                    <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+                                        <span class="font-semibold title-font">{item.name}</span>
+                                    </div>
+                                    <div class="md:flex-grow">
+                                        <h2 class="text-2xl font-medium title-font mb-2">
+                                            {item.technologies}
+                                        </h2>
+                                        <p class="leading-relaxed">
+                                            {item.description} 
+                                            <br>
+                                        </p>
+                                        <br>
+                                        <a href="{item.link}" class="btn variant-filled-primary"> github link</a>
+                                    </div>
+                                </div>
+                                <hr class="py-2">
+                            {/each}
+                            {:else}
+                                <p>Nothing here yet.</p>
+                            {/if}
+                        </div>        
                     </div>
                 {/if}
-                
-            </div>
+            </section>
             
     
             

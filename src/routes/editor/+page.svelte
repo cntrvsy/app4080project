@@ -26,9 +26,9 @@
         </p>
         <div class="flex justify-center">
           <div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-4">
-            <button class="btn variant-filled-secondary py-2 px-2" on:click={()=>goto('editor/create')}>Create</button>
-            <button class="btn variant-filled-secondary py-2 px-2" on:click={()=>goto('editor/update')}>Update</button>
-            <button class="btn variant-filled-secondary py-2 px-2" on:click={()=>goto('editor/delete')}>Delete</button>
+            <button class="btn variant-filled-primary py-2 px-2" on:click={()=>goto('editor/create')}>Create</button>
+            <button class="btn variant-filled-primary py-2 px-2" on:click={()=>goto('editor/update')}>Update</button>
+            <button class="btn variant-filled-primary py-2 px-2" on:click={()=>goto('editor/delete')}>Delete</button>
           </div>
           
         </div>

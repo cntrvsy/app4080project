@@ -1,5 +1,7 @@
 <script lang="ts">
+//where the user inserts their email and are given a special link that allows them to reset their password
 // we are able to access session and supabase from data
+import reset from '$lib/assets/reset.svg'
 import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
 
 const toastStore = getToastStore();
@@ -33,15 +35,23 @@ const handlePasswordRecovery = async() => {
 </script>
 
 <section>
-    <div class="container px-5 py-24 mx-auto flex flex-wrap">
-        <h2 class="sm:text-3xl text-2xl font-medium title-font mb-2 md:w-2/5">
-            Enter your Email here:
-        </h2>
-        <div class="md:w-3/5 md:pl-6">
-            <form on:submit="{handlePasswordRecovery}">
-                <input name="email" bind:value="{email}" class={"input pl-2 box-content h-8 w-80"}/>
-                <button type="submit" class="btn variant-filled-primary">Send</button>
-            </form>
+    <div class="container mx-auto flex px-5 py-8 items-center justify-center flex-col">
+      <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="{reset}">
+      <div class="text-center lg:w-2/3 w-full">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium">Enter Your email below:</h1>
+        <p class="leading-relaxed mb-8">
+            We will send you the link to where you will be allowed to reset your password.
+        </p>
+        <div class="flex justify-center">
+            <div class="card p-4 w-full text-token space-y-4">
+                <form on:submit={()=>handlePasswordRecovery()}>
+                    <label class="label py-2">
+                        <input name="email" bind:value="{email}" class="input pl-4"/>
+                    </label>
+                    <button type="submit" class="btn variant-filled-primary">Send</button>
+                </form>
+            </div>
         </div>
-    </div> 
+      </div>
+    </div>
 </section>

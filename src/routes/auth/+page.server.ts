@@ -41,7 +41,7 @@ export const actions = {
 
         // Successful sign-In, update the store and dispatch custom event.
         
-      return message(signIn_Form, {text: 'Benin Form sign in posted!!'});
+      return message(signIn_Form, {text: 'posted, refresh the page'});
     }
   },
   signUp: async ({ request, url, locals: { supabase} }) => {
@@ -70,7 +70,7 @@ export const actions = {
         // Successful sign-In, update the store and dispatch custom event.
         
       // return message(signUp_Form, {text: 'Benin Form sign Up posted!!'});
-      return message(signUp_Form,{text: ''});
+      return message(signUp_Form,{text: 'posted!!, feel free to Sign In'});
     }
   }
 }

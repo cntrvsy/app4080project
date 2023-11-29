@@ -8,7 +8,7 @@
             if($loading.status === 'NAVIGATING'){
                 $loading.status = 'LOADING'
             }   
-        }, 400)
+        }, 600)
     }
 </script>
 

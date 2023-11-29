@@ -2,7 +2,6 @@
 // @ts-nocheck
 import { goto } from '$app/navigation';
 
-    
 import SuperForm from '$lib/components/Form.svelte';
 import TextField from '$lib/components/TextField.svelte';
 import { fly,fade } from 'svelte/transition';
@@ -22,30 +21,34 @@ export const showToast = (message:string) => {
   let { supabase } = data
   $: ({ supabase } = data)
 
+
   let email
   let password
 
-  const handleSignUp = async () => {
-    await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${location.origin}/auth/callback`,
-      },
-    })
-  }
+  // simple implementations for debugging
+  
+  // const handleSignUp = async () => {
+  //   await supabase.auth.signUp({
+  //     email,
+  //     password,
+  //     options: {
+  //       emailRedirectTo: `${location.origin}/auth/callback`,
+  //     },
+  //   })
+  // }
 
-  const handleSignIn = async () => {
-    await supabase.auth.signInWithPassword({
-      email,
-      password,
-    })
-  }
+  // const handleSignIn = async () => {
+  //   await supabase.auth.signInWithPassword({
+  //     email,
+  //     password,
+  //   })
+  // }
 
-  const handleSignOut = async () => {
-    await supabase.auth.signOut()
-  }
+  // const handleSignOut = async () => {
+  //   await supabase.auth.signOut()
+  // }
 
+ 
   let componentState = 'SignIn';
   // tiny state machine
   const componentStates = {
@@ -83,11 +86,6 @@ export const showToast = (message:string) => {
   <button on:click="{handleSignOut}">Sign out</button>
   <br>  -->
   <!-- <button class="btn variant-filled-secondary" on:click={toggleSign_State('SignIn')}>toggle</button> -->
-
-  <br>
-  
-  <br>
-
   <div class="mx-auto max-w-screen-2xl">
     <div class="flex item-center justify-center h-screen p-10">
 

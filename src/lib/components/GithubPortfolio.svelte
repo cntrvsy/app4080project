@@ -32,7 +32,7 @@
           <div class="flex flex-wrap -m-4">
             <!-- tag one -->
             <div class="p-4 md:w-1/3 ">
-              <div class="flex rounded-lg h-full border-2 border-current p-8 flex-col">
+              <div class="flex rounded-lg h-full border-2 border-current bg-transparent backdrop-blur-xl p-8 flex-col">
                 <div class="flex items-center mb-3">
                   <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full flex-shrink-0">
                     <PieChart strokeWidth={2} size={24}/>

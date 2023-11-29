@@ -57,7 +57,7 @@
     
         onMount(async () => {
             //kyle github data retrieval(graphQL)
-            query_one_name = data.data.query_One.data.user.login
+            query_one_name = data.data?.query_One.data.user.login
             query_one_totalContributions = data.data?.query_One?.data?.user?.contributionsCollection?.contributionCalendar.totalContributions || 0;
             query_one_totalCommitContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalCommitContributions || 0;
             query_one_totalIssueContributions = data.data?.query_One?.data?.user?.contributionsCollection?.totalIssueContributions || 0;

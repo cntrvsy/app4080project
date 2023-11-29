@@ -31,7 +31,7 @@ const query_One = `query{
       defaultBranchRef {
         target {
           ... on Commit {
-            history(first: 1) {
+            history(first: 2) {
               edges {
                 node {
                   message

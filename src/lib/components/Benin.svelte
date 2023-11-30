@@ -2,7 +2,7 @@
   import { Avatar } from "@skeletonlabs/skeleton";
 	import { Dices, ScrollText, Hourglass, Contact } from "lucide-svelte";
 	
-let pfp:string = "https://avatars.githubusercontent.com/u/85725132?u=3684d798309c29d4f339936ce3f547cf5db94125&v=4"
+let pfp:string = "https://avatars.githubusercontent.com/u/118628316?v=4"
 </script>
 
 
@@ -17,10 +17,12 @@ let pfp:string = "https://avatars.githubusercontent.com/u/85725132?u=3684d798309
                  rounded="rounded-3xl" />
             </div>
             <div class="flex flex-col items-center text-center justify-center">
+              <!-- Name -->
               <h2 class="font-medium title-font mt-4 text-white text-lg">
-                Kyle Sting
+                Benin Mukabanah
             </h2>
               <div class="w-12 h-1 bg-current rounded mt-2 mb-4"></div>
+              <!-- job title -->
               <p class="text-base text-gray-400">
                 Software Engineer
               </p>         
@@ -28,10 +30,11 @@ let pfp:string = "https://avatars.githubusercontent.com/u/85725132?u=3684d798309
           </div>
           <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-800 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
             <p class="leading-relaxed text-lg mb-4">
-                Hello, my name is kyle sting.  asoftware engineer based in Nairobi Kenya. my hobbies are swiming and dancing. my lanugage of choice is C++ and Rust.
-                Currently use React Native.    
+                Hello, my name is Benin Tang'na Mukabanah.  A software engineer based in Nairobi Kenya. my hobbies are swiming and dancing. my lanugage of choice is C++ and Rust.
+                Currently use Sveltekit and Tauri.    
             </p>
-            <a class=" btn variant-filled-primary" href="https://github.com/kyle-304">
+            <!-- github link -->
+            <a class=" btn variant-filled-primary" href="https://github.com/cntrvsy">
                 My GitHub
             </a>
           </div>
@@ -78,7 +81,7 @@ let pfp:string = "https://avatars.githubusercontent.com/u/85725132?u=3684d798309
               <div class="flex-grow">
                 <h2 class=" text-lg title-font font-medium mb-3">Work Experience</h2>
                 <p class="leading-relaxed text-base">
-                  Interned at a start up software development company name JaokO Software Solutions  for 6 months. 
+                  Interned at a start up software development company Karibu Software Solutions for 6 months. 
                 </p>
               </div>
             </div>
@@ -90,9 +93,9 @@ let pfp:string = "https://avatars.githubusercontent.com/u/85725132?u=3684d798309
                 <Contact strokeWidth={2} size={48}/>
               </div>
               <div class="flex-grow">
-                <h2 class=" text-lg title-font font-medium mb-3">Work Experience</h2>
+                <h2 class=" text-lg title-font font-medium mb-3">Contact</h2>
                 <p class="leading-relaxed text-base">
-                  you can reach on phone (0712123453) or on email (kyle-304@github.com) between the hour of 8am till 5pm. 
+                  you can reach on phone (0712123453) or on email (cntrvsy@github.com) between the hour of 8am till 5pm. 
                 </p>
               </div>
             </div>

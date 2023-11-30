@@ -5,7 +5,7 @@
 
         //custom imports
         import GithubPortfolio from '$lib/components/GithubPortfolio.svelte';
-        import Kyle from '$lib/components/Kyle.svelte';
+        import Benin from '$lib/components/Benin.svelte';
         import { onMount } from "svelte";
         
         export let data; // unique to sveltekit
@@ -13,11 +13,11 @@
         
         // initializing at the top to prevent issues
         
-        let kyle_UUID:string;
+        let kyle_UUID:string = "c0fefa23-cf3f-44c8-b798-5ed1b87b118f";
         let db_projects_kyle = [];
         let cntrvsy_UUID:string = "bdd59a73-3afc-41e9-a033-14976970ba52";
         let db_projects_cntrvsy = [];
-        let thy_UUID:string;
+        let thy_UUID:string = "a9a4f27d-01e0-4f82-9826-94eceac7e784";
         let db_projects_thy = [];
 
         // state
@@ -95,10 +95,11 @@
     
       <main>
         <div class="container px-5 py-8 mx-auto flex flex-col">		
-              <!-- main page you see -->
+              <!-- main page you see(this will be repeated) -->
+              <!-- Benin Section -->
             <section>	
                 <div class="py-4">
-                    <Kyle/>
+                    <Benin/>
                 </div>
                 
                 <hr class="!border-t-8 !border-double py-2" />
@@ -166,8 +167,9 @@
                     </div>
                 {/if}
             </section>
+             <!-- Kyle Section -->
             
-    
+             <!-- ThyShark Section -->
             
         </div>
       </main>

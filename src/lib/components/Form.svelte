@@ -4,7 +4,7 @@
     
     const toastStore = getToastStore();
 
-    import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte'
+    //import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte'
     import { superForm } from 'sveltekit-superforms/client'
     export let data
     export let dataType
@@ -43,4 +43,4 @@
     ></slot>
 </form>
 
-<SuperDebug data={$form}></SuperDebug>
+//<SuperDebug data={$form}></SuperDebug>

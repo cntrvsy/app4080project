@@ -137,7 +137,7 @@ export const showToast = (message:string) => {
                             <button type="submit" class="btn variant-filled-primary px-8" on:submit={()=> goto("/editor")}>Sign In</button>
                           </div>
                       </SuperForm>
-                      <a href="/auth/reset" class="text-xs mt-3">Click here if you forgot your password</a>
+                      <a href="/auth/reset" class="text-xs mt-3 text-warning-400">Click here if you forgot your password</a>
                     </div>
                   </div>
               </div>
@@ -188,7 +188,7 @@ export const showToast = (message:string) => {
                             <button type="submit" class="btn variant-filled-primary px-8" on:click={()=>createAccount()}>Sign Up</button>
                           </div>
                       </SuperForm>
-                      <a href="/auth/reset" class="text-xs mt-3">Click here if you forgot your password</a>
+                      <a href="/auth/reset" class="text-xs mt-3 text-warning-400">Click here if you forgot your password</a>
                     </div>
                   </div>
               </div>

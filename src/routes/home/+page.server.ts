@@ -6,7 +6,47 @@ import { GITHUB_TOKEN } from "$env/static/private";
  info is being rendered after the run
  pass it in as props
 */
+// Benin GraphQL data fetching
 const query_One = `query{
+  user(login: "cntrvsy") {
+    login
+    avatarUrl
+    contributionsCollection(from: "2023-01-01T00:00:00Z", to: "2023-12-31T23:59:59Z") {
+      totalCommitContributions
+      totalIssueContributions
+      totalPullRequestContributions
+      totalPullRequestReviewContributions
+      totalRepositoryContributions
+      contributionCalendar {
+        totalContributions
+        weeks {
+          contributionDays {
+            contributionCount
+            date
+          }
+        }
+      }
+    }
+    repository(name: "app4080project") {
+      name
+      defaultBranchRef {
+        target {
+          ... on Commit {
+            history(first: 2) {
+              edges {
+                node {
+                  message
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+// Kyle GraphQL data fetching
+const query_Two = `query{
   user(login: "kyle-304") {
     login
     avatarUrl
@@ -27,6 +67,45 @@ const query_One = `query{
       }
     }
     repository(name: "week9-colloborative") {
+      name
+      defaultBranchRef {
+        target {
+          ... on Commit {
+            history(first: 2) {
+              edges {
+                node {
+                  message
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`;
+// ThyShark GraphQL data fetching
+const query_Three = `query{
+  user(login: "Thyshark") {
+    login
+    avatarUrl
+    contributionsCollection(from: "2023-01-01T00:00:00Z", to: "2023-12-31T23:59:59Z") {
+      totalCommitContributions
+      totalIssueContributions
+      totalPullRequestContributions
+      totalPullRequestReviewContributions
+      totalRepositoryContributions
+      contributionCalendar {
+        totalContributions
+        weeks {
+          contributionDays {
+            contributionCount
+            date
+          }
+        }
+      }
+    }
+    repository(name: "Univerisity-Portal") {
       name
       defaultBranchRef {
         target {

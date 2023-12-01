@@ -7,7 +7,7 @@
         import GithubPortfolio from '$lib/components/GithubPortfolio.svelte';
         import Benin from '$lib/components/Benin.svelte';
         import Kyle from '$lib/components/Kyle.svelte';
-        import Thy from '$lib/components/thy.svelte';
+        import Thy from '$lib/components/Thy.svelte';
         import { onMount } from "svelte";
 	
         

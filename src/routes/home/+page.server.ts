@@ -148,21 +148,38 @@ export async function load(){
      }
     
      // make 3 separate GraphQL requests
-        const [response_One] = await Promise.all([
+        const [response_One, response_Two, response_Three] = await Promise.all([
             fetch("https://api.github.com/graphql", {
                 method: "POST",
                 headers,
                 body: JSON.stringify({query: query_One})
-            })
+            }),
+            fetch("https://api.github.com/graphql", {
+                method: "POST",
+                headers,
+                body: JSON.stringify({query: query_Two})
+            }),
+            fetch("https://api.github.com/graphql", {
+                method: "POST",
+                headers,
+                body: JSON.stringify({query: query_Three})
+            }),
+
+        
+  
         //[TODO]add comma then continue
     ])
 
     //Parse the responses
     const data_One = await response_One.json();
+    const data_Two = await response_Two.json();
+    const data_three = await response_Three.json();
 
     return{
         data: {
-            query_One: data_One
+            query_One: data_One,
+            query_Two: data_Two,
+            query_Three: data_three
         }
     }
 };

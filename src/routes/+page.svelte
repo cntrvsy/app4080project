@@ -16,7 +16,10 @@ import { goto } from '$app/navigation';
 					GITHUB PORTFOLIO
 				</h1>
 				<p class="leading-relaxed mb-8">
-					Welcome to our Github Portfolio application showing our groups work
+					Welcome to our Github Portfolio application showing our groups work.<br>
+					<center>Benin Mukabanah 659821</center> <br>
+					<center>Kyle Sting 662366</center> <br>
+					<center>Ken Kimiri 662541</center> <br>
 				</p>
 				<button class="btn variant-filled-primary" on:click={()=> goto('/home')}> Get Started</button>
 			</div>

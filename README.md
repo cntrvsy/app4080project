@@ -1,28 +1,23 @@
-# create-svelte
+# Welcome to APP4080PortfolioProject
+# visit the site
+powered by Vercel and Supabase [`APP4080PortfolioProject`](https://app4080project.vercel.app/).
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Running the project Locally
+this project was built using NodeJs version 18.
+all you need is one thing, the Environment Variables!
+for this project to work you will need Supabase credentials, supabase anon key (each provided when creating your own supabase instance) and a Fine Grain Token from your gtihub for the graphQL.
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+# clone the project
 ```
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've cloned the project and installed dependencies with `npm install`  start a development server:
 
 ```bash
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
 ## Building
@@ -30,9 +25,9 @@ npm run dev -- --open
 To create a production version of your app:
 
 ```bash
-npm run build
+npm run build // this will build a version that runs on vercel
 ```
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+> Take note that project is configured to build to vercel. here is the adapter docs.[adapter](https://kit.svelte.dev/docs/adapter-vercel).

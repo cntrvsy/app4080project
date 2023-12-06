@@ -1,4 +1,6 @@
 # Welcome to APP4080PortfolioProject
+This is a project done for the APP4080 (A collaboration class).
+It is to show case the group members Portfolios, which include github(using the github API) and something small about themselves.
 # visit the site
 powered by Vercel and Supabase [`APP4080PortfolioProject`](https://app4080project.vercel.app/).
 

@@ -11,7 +11,7 @@
 </script>
 
 <TabGroup justify="justify-center">
+	<!-- <TabAnchor href="/create" selected={$page.url.pathname === '/create'}>Create</TabAnchor> -->
 	<TabAnchor href="/home" selected={$page.url.pathname === '/home'}>Portfolios</TabAnchor>
 	<TabAnchor href="/editor" selected={$page.url.pathname === '/editor'}>Editor</TabAnchor>
 </TabGroup>
-					

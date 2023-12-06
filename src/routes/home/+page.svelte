@@ -109,7 +109,7 @@
             console.log(query_two_name, query_two_totalContributions, query_two_totalCommitContributions, query_two_totalIssueContributions, query_two_totalPullRequestContributions, query_two_totalPullRequestReviewContributions, query_two_totalRepositoryContributions, query_two_RepositoryName, query_two_commitMessage_one)
             
              //thy github data retrieval(graphQL)
-             query_three_name = data.data?.query_Three.data.user.login
+            query_three_name = data.data?.query_Three.data.user.login
             query_three_totalContributions = data.data?.query_Three?.data?.user?.contributionsCollection?.contributionCalendar.totalContributions || 0;
             query_three_totalCommitContributions = data.data?.query_Three?.data?.user?.contributionsCollection?.totalCommitContributions || 0;
             query_three_totalIssueContributions = data.data?.query_Three?.data?.user?.contributionsCollection?.totalIssueContributions || 0;
@@ -117,9 +117,9 @@
             query_three_totalPullRequestReviewContributions = data.data?.query_Three?.data?.user?.contributionsCollection?.totalPullRequestReviewContributions || 0;
             query_three_totalRepositoryContributions = data.data?.query_Three?.data?.user?.contributionsCollection?.totalRepositoryContributions || 0;
             
-            query_two_RepositoryName = data.data?.query_Three?.data?.user?.repository?.name 
-            query_two_commitMessage_one = data.data?.query_Three?.data?.user?.repository?.defaultBranchRef?.target?.history?.edges[0].node?.message
-            query_two_commitMessage_two = data.data?.query_Three?.data?.user?.repository?.defaultBranchRef?.target?.history?.edges[1].node?.message
+            query_three_RepositoryName = data.data?.query_Three?.data?.user?.repository?.name 
+            query_three_commitMessage_one = data.data?.query_Three?.data?.user?.repository?.defaultBranchRef?.target?.history?.edges[0].node?.message
+            query_three_commitMessage_two = data.data?.query_Three?.data?.user?.repository?.defaultBranchRef?.target?.history?.edges[1].node?.message
 
             console.log(query_three_name, query_three_totalContributions, query_three_totalCommitContributions, query_three_totalIssueContributions, query_three_totalPullRequestContributions, query_three_totalPullRequestReviewContributions, query_three_totalRepositoryContributions, query_three_RepositoryName, query_three_commitMessage_one)
             

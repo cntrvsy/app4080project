@@ -10,6 +10,7 @@
 
 <nav class="list-nav p-4">
 	<ul>
+		<!-- <li><a href="/create" on:click={drawerClose} >Create</a></li> -->
 		<li><a href="/home" on:click={drawerClose} >Portfolios</a></li>
 		<li><a href="/editor" on:click={drawerClose} >Editor</a></li>
 		<br>

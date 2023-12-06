@@ -9,6 +9,7 @@ declare namespace App {
 	 }
 	  interface PageData {
 		session: Session | null;
+		flash?: {type: 'success' | 'error'; message: string};
 	 }
 	// interface Error {}
 	// interface Platform {}

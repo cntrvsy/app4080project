@@ -1,6 +1,7 @@
 import { SignInSchema, SignUpSchema } from '$lib/schemas.js';
 import { redirect } from '@sveltejs/kit'
 import { fail, error } from '@sveltejs/kit';
+import { AuthApiError } from '@supabase/supabase-js';
 import { superValidate, message } from 'sveltekit-superforms/server';
 
 export const load = async ({ url, locals: { getSession} }: {url:any; locals:any}) => {
@@ -36,18 +37,23 @@ export const actions = {
         console.log("supabase run")
 
         if(error){
+          //if supabase returns error
+          if (error instanceof AuthApiError && error.status === 400) {
+            return message(signIn_Form,{text: 'Invalid Credentials, Try again.', status: 401});
+
+          }
           return fail(500, { message: 'Server error. Try again later.'})
         }
 
         // Successful sign-In, update the store and dispatch custom event.
-        
-      return message(signIn_Form, {text: 'posted, refresh the page'});
+        throw redirect(303, '/editor')
+      //return message(signIn_Form, {text: 'benin posted, refresh the page'});
     }
   },
   signUp: async ({ request, url, locals: { supabase} }) => {
     const signUp_Form = await superValidate(request, SignUpSchema);
 
-    console.log('Sign In', signUp_Form);
+    console.log('Sign Up', signUp_Form);
     // error checking for the form itself
     if(!signUp_Form.valid) {
 
@@ -59,18 +65,21 @@ export const actions = {
         // sending it to supabase
         const { error } = await supabase.auth.signUp({
           email,
-          password,
+          password
         })
         console.log("supabase run")
 
         if(error){
+          //if supabase returns error
+          if (error instanceof AuthApiError && error.status === 400) {
+            return message(signUp_Form,{text: 'Something went wrong, try again', status: 401});
+
+          }
           return fail(500, { message: 'Server error. Try again later.'})
         }
 
         // Successful sign-In, update the store and dispatch custom event.
-        
-      // return message(signUp_Form, {text: 'Benin Form sign Up posted!!'});
-      return message(signUp_Form,{text: 'posted!!, feel free to Sign In'});
+      return message(signUp_Form,{text: 'Check your Email for Confirmation.'});
     }
   }
 }

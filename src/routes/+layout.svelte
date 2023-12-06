@@ -1,11 +1,14 @@
 <!-- layout.svelte(standard) provides a template that all other pages will have in the application -->
 <script lang="ts">
 	import '../app.postcss';
+	import { page } from '$app/stores';
 	import { AppShell, AppBar, LightSwitch, Toast, getToastStore } from '@skeletonlabs/skeleton';
 	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
-	initializeStores();
 	
+	initializeStores();
+	const toastStore = getToastStore();
+
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
@@ -24,11 +27,11 @@
 	import { loading } from '$lib/stores/loading';
 	import CustomPageTransition from '$lib/components/CustomPageTransition.svelte';
 	import CustomLoading from '$lib/components/CustomLoading.svelte';
-
-	import { page } from "$app/stores"
-
+	
+	//loading logic
 	$: loading.setNavigate(!!$navigating)
 
+	//supabase accessible through out the whole application
 	export let data
 
 	let { supabase, session } = data

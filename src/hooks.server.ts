@@ -29,14 +29,23 @@ export const handle: Handle = async ({ event, resolve }) => {
     } = await event.locals.supabase.auth.getSession()
     return session
   }
-   // protect requests to all routes that start with /protected-routes
+   // protect requests to all routes that start with /editor(user cant just type the exact url and gain access)
    if (event.url.pathname.startsWith('/editor')) {
     const session = await event.locals.getSession()
     if (!session) {
       // the user is not signed in
       throw redirect(303, '/auth')
     }
-  }
+    }
+
+    // protect requests to all routes that start with /create
+   if (event.url.pathname.startsWith('/create')) {
+    const session = await event.locals.getSession()
+    if (!session) {
+      // the user is not signed in
+      throw redirect(303, '/auth')
+    }
+    }
 
   return resolve(event, {
     filterSerializedResponseHeaders(name) {
